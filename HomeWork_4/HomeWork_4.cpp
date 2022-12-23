@@ -1,9 +1,49 @@
 ﻿#include <iostream>
 using namespace std;
+
+int calculateThePowerOfaNumber(int foundationDegree, int degreeIndicator) {
+    int degreeOfNumber = foundationDegree * degreeIndicator;
+    return degreeOfNumber;
+}
+
+int sumOfNumbers(int number1, int number2) {
+    int sum = 0;
+    if (number1 < number2) {
+         for (int i = number1; i <= number2; i++)
+          {
+            sum += i;
+          }
+         cout << "Сумма чисел в диапазоне от " << number1 << " до " << number2 << " равна: " << sum << endl;
+    }
+    else {
+        cout << "Ошибка первое число не может быть больше второго!";
+    }
+    return sum;
+}
+
+int findingThePerfectNumber(int x, int y) {
+    for (int i = x; i < y; i++)
+    {
+        int perfectNumber = 0;
+        for (int j = 1; j < i; j++)
+        {
+            if ((i % j) == 0)
+            {
+                perfectNumber += j;
+            }
+        }
+        if (perfectNumber == i && perfectNumber)
+        {
+            cout << perfectNumber << ", ";
+        }
+    }
+    return 0;
+}
+
 int main()
 {
     setlocale(LC_ALL, "Rus");
-    cout << "\n===================================Двухмерные массивы===================================\n";
+    cout << "\n===================================Двумерные массивы===================================\n";
     cout << "\n===============================================Задача 1=================================\n";
     const size_t a = 5, b = 5;
     int arr[a][b];
@@ -47,7 +87,7 @@ int main()
     srand(time(0));
     int quantity;
     int shift;
-    cout << "Дается двуxмерный массив: " << "\n";
+    cout << "Дается двумерный массив: " << "\n";
     enum move{left, right, up, down};
     for (int i = 0; i < row; i++)
     {
@@ -72,7 +112,7 @@ int main()
             {
                 for (int j = 0; j < col - 1; j++)
                 {
-                    int temp = arr2[i][j + 1];
+                    int temp = arr2[i][j + 1];   //получается везде только левый сдвиг! Во всех 4ех вариантаxх сдвига.
                 }
             }
         } 
@@ -270,7 +310,28 @@ int main()
     cout << "\n==============================================================================================================================\n";
     cout << "\n=====================================================ФУНКЦИИ!=================================================================\n";
     cout << "\n==============================================================================================================================\n";
+    cout << "\n===============================================Задача 1=================================\n";
 
+    int foundationDegree = 0;
+    int degreeIndicator = 0;
+    int degreeOfNumber =  calculateThePowerOfaNumber(5, 5);
+    cout << "Степень числа равна: " << degreeOfNumber << endl;
+
+    cout << "\n===============================================Задача 2=================================\n";
+
+    int number1 = 0;
+    int number2 = 0;
+    cout << "Введите первое число: ";
+    cin >> number1;
+    cout << "Введите второе число: ";
+    cin >> number2;
+    int sum = sumOfNumbers(number1, number2);
+
+    cout << "\n===============================================Задача 3=================================\n";
+    
+    int x;
+    int y;
+    findingThePerfectNumber(0, 9000);
 
 }
 
